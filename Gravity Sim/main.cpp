@@ -1,9 +1,14 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "ball.h"
+using std::cin;
+using std::cout;
+using std::endl;
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(500, 500), "Gravity Sim");//declaring size of window, and setting the title
-
+	Ball sphere(sf::Color::White, 1, *(new sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2)));//instantiate sphere
 	while (window.isOpen())//while the window is open
 	{
 
@@ -16,11 +21,13 @@ int main()
 			{
 				window.close();//closing window
 			}
-			//instantiate object
+			
 			//movement
-			//speed of object?
+			//vector movement of object
+			//if screen clicked place ball
+			//window.draw(sphere);
 		}
-
+		
 	}
 
 	

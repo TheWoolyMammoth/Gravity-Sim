@@ -145,11 +145,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="moveableobj.h" />
+    <ClCompile Include="ball.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="moveableobj.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="ball.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
