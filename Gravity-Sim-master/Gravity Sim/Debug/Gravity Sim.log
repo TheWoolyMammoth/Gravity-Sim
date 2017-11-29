@@ -1,8 +1,0 @@
-﻿  main.cpp
-c:\users\luke\desktop\gravity-sim-master\gravity sim\ball.h(10): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\luke\desktop\gravity-sim-master\gravity sim\ball.h(23): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
-c:\users\luke\desktop\gravity-sim-master\gravity sim\ball.h(26): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
-c:\users\luke\desktop\gravity-sim-master\gravity sim\main.cpp(14): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\luke\desktop\gravity-sim-master\gravity sim\main.cpp(38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Gravity Sim.vcxproj -> C:\Users\luke\Desktop\Gravity-Sim-master\Debug\Gravity Sim.exe
-  Gravity Sim.vcxproj -> C:\Users\luke\Desktop\Gravity-Sim-master\Debug\Gravity Sim.pdb (Full PDB)
