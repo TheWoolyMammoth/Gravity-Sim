@@ -1,6 +1,7 @@
 #ifndef B
 #define B
 
+#include <string>
 #include "floor and walls.h"
 #include <iostream>
 #include <SFML\Graphics.hpp>
@@ -26,20 +27,11 @@ public:
 	int getX() {
 		return ball.getPosition().x;
 	}
-	void gravity(sf::Vector2f &movement, float gravityStrength, float gravity, float bounce, int groundHeight) {
-		if (this->getY() < groundHeight) {
-			movement.y += gravityStrength;
-		}
-		if (this->getY() >= groundHeight) {
-			bounce = -(movement.y - 0.05);
-			gravity = 0;
-			movement.y = bounce;
-		}
-		if (this->getY() > (groundHeight)) {
-			this->setPos({ (float)this->getX(),(float)groundHeight });
-		}
+	sf::CircleShape getBall() {
+		return  ball;
 	}
-	void collision(sf::Vector2f &movement, float gravityStrength, float bounce, Floor floor, Floor ceiling, Wall wall1, Wall wall2) {
+	//gravity system checks for collisions with walls and floors
+	void collision(sf::Vector2f &movement, float gravityStrength, float bounce, Floor &floor, Floor &ceiling, Wall &wall1, Wall &wall2) {
 		if (!ball.getGlobalBounds().intersects(floor.getFloor().getGlobalBounds())) {
 			movement.y += gravityStrength;
 		}
@@ -56,10 +48,10 @@ public:
 			movement.x = -movement.x;
 		}
 		if (movement.y == 0 && movement.x > 0) {
-			movement.x = movement.x - .00001;
+			movement.x = movement.x - .0001;
 		}
 		else if (movement.y == 0 && movement.x < 0) {
-			movement.x = movement.x + .00001;
+			movement.x = movement.x + .0001;
 		}
 		/*if (this->getY() > floor.getFloor().getOrigin().y - ball.getRadius()*2) {
 			ball.setPosition({ ball.getPosition().x, floor.getFloor().getOrigin().y});
