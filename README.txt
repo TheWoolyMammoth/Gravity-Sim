@@ -1,5 +1,5 @@
 Teammates: Joey Waner
-           Derrick Montogomery
+           Derek Montgomery
            Luke Brossman
 
 Objective: create a gravity/physics simulator
