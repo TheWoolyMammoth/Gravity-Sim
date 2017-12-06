@@ -5,12 +5,12 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "ball.h"
-#include "floor and walls.h"
+#include "floorAndWalls.h"
 
 class Button {
 public:
 	Button(int length, int height) {
-		button.setSize({(float) length,(float) height });
+		button.setSize({ (float)length,(float)height });
 	}
 	sf::RectangleShape getButton() {
 		return button;
@@ -40,15 +40,15 @@ class StartButton : public Button {
 public:
 	StartButton(sf::Color color, int length, int height, std::string text) : Button(length, height) {
 		button.setFillColor(color);
-		font.loadFromFile("Xpressive Regular.ttf");
+		font.loadFromFile("Xenotron.ttf");
 		label.setFont(font);
 		label.setString("Start");
-		label.setCharacterSize(12);
+		label.setCharacterSize(20);
 		label.setColor(sf::Color::Black);
 	}
 	void setPos(sf::Vector2f newPos) {
 		Button::setPos(newPos);
-		label.setPosition(button.getPosition().x / 4, button.getPosition().y / 2 + 6);
+		label.setPosition(button.getPosition().x + 4, button.getPosition().y + 6);
 	}
 	void drawTo(sf::RenderWindow &window) {
 		Button::drawTo(window);
@@ -62,22 +62,31 @@ private:
 
 class Slider : public Button {
 public:
-	Slider(int length = 10, int height = 40) : Button(length, height) {
+	Slider(std::string title, int length = 10, int height = 40) : Button(length, height) {
 		button.setFillColor(sf::Color::Black);
 		button.setOutlineColor(sf::Color::White);
 		button.setOutlineThickness(1);
 		track.setSize({ 200,2 });
 		track.setFillColor(sf::Color::White);
 		track.setOutlineThickness(1);
+		font.loadFromFile("Xenotron.ttf");
+		label.setFont(font);
+		label.setString(title);
+		label.setCharacterSize(20);
+		label.setColor(sf::Color::White);
+
+
 	}
 	void setPos(sf::Vector2f newPos) {
 		Button::setPos(newPos);
 		track.setPosition({ newPos.x, newPos.y + 19 });
+		label.setPosition({ newPos.x + 30, newPos.y - 30 });
 	}
 	void drawTo(sf::RenderWindow &window) {
 		window.draw(track);
 		window.draw(button);
-		
+		window.draw(label);
+
 	}
 	//slider that changes radius of ball
 	void slideSize(sf::RenderWindow &window, float *parameter) {
@@ -98,5 +107,7 @@ public:
 private:
 	//track that the slider slides on
 	sf::RectangleShape track;
+	sf::Font font;
+	sf::Text label;
 };
 #endif // !BUTT

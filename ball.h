@@ -2,7 +2,7 @@
 #define B
 
 #include <string>
-#include "floor and walls.h"
+#include "floorAndWalls.h"
 #include <iostream>
 #include <SFML\Graphics.hpp>
 
@@ -54,8 +54,8 @@ public:
 			movement.x = movement.x + .0001;
 		}
 		/*if (this->getY() > floor.getFloor().getOrigin().y - ball.getRadius()*2) {
-			ball.setPosition({ ball.getPosition().x, floor.getFloor().getOrigin().y});
-			movement.y = 0;
+		ball.setPosition({ ball.getPosition().x, floor.getFloor().getOrigin().y});
+		movement.y = 0;
 		}*/
 	}
 private:
